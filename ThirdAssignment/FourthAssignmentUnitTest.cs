@@ -66,9 +66,9 @@ namespace ThirdAssignment
         [TestMethod]
         public void TestLinq1()
         {
-            Assert.AreEqual(HomeworkLinqQueries.Linq1(_intArray)[0], "Broj 1 ponavlja se 1 puta");
-            Assert.AreEqual(HomeworkLinqQueries.Linq1(_intArray)[2], "Broj 3 ponavlja se 4 puta");
-            Assert.AreEqual(HomeworkLinqQueries.Linq1(_intArray)[4], "Broj 5 ponavlja se 1 puta");
+            Assert.AreEqual("Broj 1 ponavlja se 1 puta", HomeworkLinqQueries.Linq1(_intArray)[0]);
+            Assert.AreEqual("Broj 3 ponavlja se 4 puta", HomeworkLinqQueries.Linq1(_intArray)[2]);
+            Assert.AreEqual("Broj 5 ponavlja se 1 puta", HomeworkLinqQueries.Linq1(_intArray)[4]);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace ThirdAssignment
             {
                 foreach (var student in university.Students)
                 {
-                    Assert.AreEqual(student.Gender, Gender.Male);
+                    Assert.AreEqual(Gender.Male, student.Gender);
                 }
             }
 
@@ -103,7 +103,7 @@ namespace ThirdAssignment
         [TestMethod]
         public void TestLinq2_3()
         {
-            Assert.AreEqual(HomeworkLinqQueries.Linq2_3(_universityList.ToArray()).Length, _allStudents.Count);
+            Assert.AreEqual(_allStudents.Count, HomeworkLinqQueries.Linq2_3(_universityList.ToArray()).Length);
             Assert.IsTrue(HomeworkLinqQueries.Linq2_3(_universityList.ToArray()).OrderBy(e => e.Jmbag)
                 .SequenceEqual(_allStudents.OrderBy(e => e.Jmbag)));
         }
